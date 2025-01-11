@@ -1,7 +1,7 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
-public class Solution {
+public class q2 {
  
     static class FastReader{
         BufferedReader br;
@@ -69,19 +69,22 @@ public class Solution {
             FastWriter out=new FastWriter();
 
             //write your code here
-
+            String[] input = in.nextLine().split(" ");
             //for take input
-            int n=in.nextInt();
-
-            //for string
-            String s=in.next();
-            char ch[]=in.next().toCharArray();
-
-            //for multiple testcases
-            int testcases=in.nextInt();
-            while(testcases-- >0){
-                
+            int n=Integer.parseInt(input[0]);
+            int k=Integer.parseInt(input[1]);
+          
+            int c=0;
+            int arr[]=new int[n];
+            for(int i=0;i<n;i++){
+                arr[i]=in.nextInt();
             }
+            for(int i=0;i<n;i++){
+                if(arr[i]>0 && arr[i]>=arr[k-1]){
+                    c++;
+                }
+            }
+            out.println(c);
 
             out.close();
         } catch (Exception e) {
@@ -89,20 +92,4 @@ public class Solution {
         }
     }
 }
-    BufferedReader sc = new BufferedReader(new InputStreamReader(System.in));
-    int textCases = Integer.parseInt(sc.readLine());
-    while(textCases --> 0){
-        int num = Integer.parseInt(sc.readLine());
-        int[] arr = new int[num];
-
-        String[] input = sc.readLine().split(" ");
-        for(int j = 0; j < num; j++){
-            arr[j] = Integer.parseInt(input[j]);
-        }
-        int ans = 0;
-        for(int i = 0; i < num; i++){
-            ans = gcd(Math.abs(arr[i] - i), ans);
-        }
-        System.out.println(ans);
-    }
-    sc.close();
+  
